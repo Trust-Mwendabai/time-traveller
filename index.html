@@ -2,16 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSA CTF - Dev Portal</title>
+    <title>CSA CTF - Project 2099</title>
     <style>
-        body { background: #121212; color: #bbb; font-family: sans-serif; text-align: center; padding: 50px; }
-        .folder { font-size: 50px; }
+        body { background: #050505; color: #00ecff; font-family: 'Courier New', monospace; text-align: center; padding-top: 100px; text-shadow: 0 0 10px #00ecff; }
+        .clock-box { border: 3px double #00ecff; padding: 40px; display: inline-block; background: rgba(0, 236, 255, 0.05); }
+        #timer { font-size: 3em; margin: 20px 0; }
+        .locked { color: #ff0055; text-shadow: 0 0 10px #ff0055; }
     </style>
 </head>
 <body>
-    <div class="folder">📁</div>
-    <h1>Production Server v1.0.4</h1>
-    <p>Everything is clean. No sensitive files found on the surface.</p>
-    <p color: black>%CJ 4964<:?8 E96 ]5@E\8:E 7@=56C</p>
-    </body>
+    <div class="clock-box">
+        <h1>UNIFIED TIME VAULT</h1>
+        <p>Current System Time:</p>
+        <div id="current-time">Loading...</div>
+        <hr>
+        <h2 class="locked">STATUS: LOCKED</h2>
+        <p>Unlocks on: 01/01/2099</p>
+        <div id="payload"></div>
+    </div>
+
+    <script>
+        function updateVault() {
+            const now = new Date();
+            document.getElementById('current-time').innerText = now.toString();
+
+            const unlockDate = new Date('2099-01-01T00:00:00');
+
+            if (now >= unlockDate) {
+                document.querySelector('h2').innerText = "STATUS: UNLOCKED";    document.querySelector('h2').className = "";
+                document.querySelector('h2').style.color = "#39ff14";      document.getElementById('payload').innerHTML = `<h3>FLAG: ${atob("Q1NBe2JhY2tfdG9fdGhlX2Z1dHVyZX0=")}</h3>`;
+            }
+        }
+        setInterval(updateVault, 1000);
+    </script>
+</body>
 </html>
