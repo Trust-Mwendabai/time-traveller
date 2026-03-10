@@ -1,7 +1,1 @@
-function updateVault() {
-    const now = new Date();
-    document.getElementById('current-time').innerText = now.toString();    const unlockDate = new Date('2099-01-01T00:00:00');
-  if (now >= unlockDate) { const h2 = document.querySelector('h2');h2.innerText = "STATUS: UNLOCKED";  h2.style.color = "#39ff14";        document.getElementById('payload').innerHTML = `<h3>FLAG: ${atob("Q1NBe2JhY2tfdG9fdGhlX2Z1dHVyZX0=")}</h3>`;
-    }
-}
-setInterval(updateVault, 1000);
+function updateVault() {const now = new Date();    document.getElementById('current-time').innerText = now.toString();    const unlockDate = new Date('2099-01-01T00:00:00'); if (now >= unlockDate) { const h2 = document.querySelector('h2');h2.innerText = "STATUS: UNLOCKED";  h2.style.color = "#39ff14";        document.getElementById('payload').innerHTML = `<h3>FLAG: ${atob("Q1NBe2JhY2tfdG9fdGhlX2Z1dHVyZX0=")}</h3>`; }}  setInterval(updateVault, 1000);
